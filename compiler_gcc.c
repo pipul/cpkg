@@ -10,7 +10,7 @@
 
 static void gcc_compile_package(struct package *pkg) {
 	struct slice objs, *aux_source;
-	int i, size;
+	int i, size, status;
 	pid_t pid;
 	char *srcfile;
 	char fullpath[PATH_MAXLEN];
@@ -35,16 +35,19 @@ static void gcc_compile_package(struct package *pkg) {
 
 	// if the output directory doesn't exist, we create it...
 	if (stat(fullpath, &finfo) != 0) {
-		mkdir(fullpath, 0755);
+		path_mkdir(fullpath, 0755, 1);
 	}
 
-	if ((pid = fork()) == 0) {
+	pid = fork();
+	if (pid == 0) {
 		fprintf(stdout,
-			"building %s by using compiler: gcc...\n", pkg->name);
+			"switching to path: %s\nbuilding %s by using compiler: gcc...\n",
+			fullpath, pkg->name);
 		chdir(fullpath);
 		execvp("gcc", (char **)slice_data(&objs));
 		exit(0);
 	}
+	waitpid(pid, &status, 0);
 	slice_destroy(&objs);
 	return;
 }

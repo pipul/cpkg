@@ -150,7 +150,7 @@ void pkg_load_definitions(struct package *pkg) {
 		 pkg->env->srcpath, pkg->name, DEFCONF_NAME);
 	if ((fd = open(fullpath, O_RDONLY)) < 0) {
 		fprintf(stderr, "can't load difinitions file: %s\n", fullpath);
-		return;
+		goto default_cmd;
 	}
 	off = 0;
 	while ((n = read(fd, buf + off, BUFFER_MAXLEN - off)) + off > 0) {
@@ -170,7 +170,7 @@ void pkg_load_definitions(struct package *pkg) {
 		off = strlen(buf);
 	}
 
-
+ default_cmd:
 	// process the default command definitions
 	if (!(cmd_args = calloc(sizeof(*cmd_args), 1))) {
 		fprintf(stderr, "can't make the default command...\n");

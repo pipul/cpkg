@@ -6,6 +6,7 @@
 #include <dirent.h>
 
 #include "env.h"
+#include "path.h"
 #include "slice.h"
 
 
@@ -74,5 +75,56 @@ int path_walk(const char *pathname, struct slice *ents) {
 	}
 
 	closedir(dir);
+	return 0;
+}
+
+
+int path_mkdir(const char *filename, mode_t mode, int flags) {
+	char *name = (char *)filename;
+	char *tail = name + strlen(name);
+	char fullpath[PATH_MAXLEN] = {};
+	int len = 0, limit;
+	struct stat finfo;
+	
+	if (flags & MKDIR_PARENT)
+		goto mkdir_parent;
+	return mkdir(filename, mode);
+ mkdir_parent:
+
+	/* At this point we know we have a real path component */
+	if (name[0] == '/') {
+		chdir("/");
+	}
+	for (;;) {
+		if (name > tail) {
+			break;
+		}
+		len = 0;
+		limit = strlen(name);
+		while (name[len] != '/' && len < limit) {
+			len++;
+		}
+		if (!len) {
+			name++;
+			continue;
+		}
+		strncpy(fullpath, name, len);
+		fullpath[len] = '\0';
+		
+		if (0 == stat(fullpath, &finfo)) {
+			if (S_ISDIR(finfo.st_mode))
+				goto path_ok;
+			fprintf(stderr, "mkdir failed: %s is a file\n", fullpath);
+			return -1;
+		}
+
+		if (0 != mkdir(fullpath, mode)) {
+			fprintf(stderr, "mkdir error %s of %s\n", filename, fullpath);
+			return -1;
+		}
+	path_ok:
+		chdir(fullpath);
+		name += len + 1;
+	}
 	return 0;
 }

@@ -66,6 +66,7 @@ CMakeFiles/test.dir/package.c.o: slice.h
 CMakeFiles/test.dir/path.c.o: env.h
 CMakeFiles/test.dir/path.c.o: list.h
 CMakeFiles/test.dir/path.c.o: path.c
+CMakeFiles/test.dir/path.c.o: path.h
 CMakeFiles/test.dir/path.c.o: slice.h
 
 CMakeFiles/test.dir/str.c.o: slice.h

@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+#include <dirent.h>
+
 
 #include "path.h"
 #include "slice.h"
@@ -26,10 +29,10 @@ void pkg_printf(struct package *pkg) {
 int test_package() {
 	struct package *pkg;
 	struct env env = {
-		.srcpath = "/tmp/src",
-		.libpath = "/tmp/lib",
-		.objpath = "/tmp/obj",
-		.includepath = "/tmp/include",
+		.srcpath = "/home/fangdong/cpkgroot/src",
+		.libpath = "/home/fangdong/cpkgroot/lib",
+		.objpath = "/home/fangdong/cpkgroot/obj",
+		.includepath = "/home/fangdong/cpkgroot/include",
 	};
 	INIT_LIST_HEAD(&env.allpackages);
 	pkg_makeroot(&env);
@@ -95,6 +98,7 @@ int test_compiler() {
 
 
 int test_path() {
+	struct stat finfo;
 	char *filename = "/tmp/src/base/cpkg.c";
 	char *pos;
 
@@ -123,12 +127,37 @@ int test_path() {
 		fprintf(stderr, "invalid ext: %s\n", pos);
 	}
 	free(pos);
+
+	filename = "/tmp/haha/weibo/mm/goo";
+	if (0 != path_mkdir(filename, 0755, 1)) {
+		fprintf(stderr, "mkdir failed %s\n", filename);
+		abort();
+	}
+	if (0 != stat(filename, &finfo)) {
+		fprintf(stderr, "stat dir failed %s\n", filename);
+		abort();
+	}
+	rmdir(filename);
+
+	filename = "/tmp/haha//weibo/mm///goo";
+	if (0 != path_mkdir(filename, 0755, 1)) {
+		fprintf(stderr, "mkdir failed %s\n", filename);
+		abort();
+	}
+	if (0 != stat(filename, &finfo)) {
+		fprintf(stderr, "stat dir failed %s\n", filename);
+		abort();
+	}
+	rmdir(filename);
+
+	return 0;
 }
 
 int testmain(int argc, char **argv) {
 	env_init();
 	cmd_init();
 	
+	test_path();
 	test_package();
 	test_str();
 	test_compiler();

@@ -50,6 +50,7 @@ CMakeFiles/test.dir/cpkg.c.o
  /home/fangdong/work/cpkg/env.h
  /home/fangdong/work/cpkg/list.h
  /home/fangdong/work/cpkg/package.h
+ /home/fangdong/work/cpkg/path.h
  /home/fangdong/work/cpkg/slice.h
 CMakeFiles/test.dir/env.c.o
  /home/fangdong/work/cpkg/env.c

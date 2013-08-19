@@ -1,5 +1,0 @@
-# ignore .CMakefile
-.gitignore
-
-# Folders
-CMakeFiles/

@@ -2,8 +2,9 @@
 #define _H_ENV_
 
 #include "list.h"
+#include <limits.h>
 
-#define PATH_MAXLEN 256
+#define PATH_MAXLEN PATH_MAX
 #define BUFFER_MAXLEN 1024
 #define PACKAGE_PATH_LEN 256
 

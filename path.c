@@ -58,7 +58,8 @@ char *path_ext(const char *filename) {
 }
 
 
-int path_walk(const char *pathname, struct slice *ents) {
+int path_walktest(const char *pathname,
+		  struct slice *ents, int (*test)(struct dirent *dent)) {
 	DIR *dir;
 	struct dirent *ent;
 	char fullpath[PATH_MAXLEN];
@@ -71,11 +72,17 @@ int path_walk(const char *pathname, struct slice *ents) {
 		    || strcmp(ent->d_name, "..") == 0)
 			continue;
 		sprintf(fullpath, "%s/%s", pathname, ent->d_name);
-		slice_append(ents, strdup(fullpath));
+		if (!test || (test && test(ent)))
+			slice_append(ents, strdup(fullpath));
 	}
 
 	closedir(dir);
 	return 0;
+}
+
+
+int path_walk(const char *pathname, struct slice *ents) {
+	return path_walktest(pathname, ents, NULL);
 }
 
 int path_walkfile(const char *pathname, struct slice *ents) {

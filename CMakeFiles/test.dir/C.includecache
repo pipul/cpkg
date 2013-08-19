@@ -6,31 +6,43 @@
 
 #IncludeRegexTransform: 
 
-/home/fangdong/work/cpkg/compiler.h
-env.h
-/home/fangdong/work/cpkg/env.h
+/home/fangdong/work/cpkg/cmd.h
+list.h
+/home/fangdong/work/cpkg/list.h
+slice.h
+/home/fangdong/work/cpkg/slice.h
 package.h
 /home/fangdong/work/cpkg/package.h
 
-/home/fangdong/work/cpkg/compiler_gcc.c
+/home/fangdong/work/cpkg/env.h
+list.h
+/home/fangdong/work/cpkg/list.h
+limits.h
+-
+
+/home/fangdong/work/cpkg/list.h
+
+/home/fangdong/work/cpkg/package.c
 stdio.h
 -
 string.h
 -
 stdlib.h
 -
+sys/types.h
+-
 sys/stat.h
 -
-slice.h
-/home/fangdong/work/cpkg/slice.h
-compiler.h
-/home/fangdong/work/cpkg/compiler.h
-
-/home/fangdong/work/cpkg/env.h
-list.h
-/home/fangdong/work/cpkg/list.h
-
-/home/fangdong/work/cpkg/list.h
+dirent.h
+-
+unistd.h
+-
+fcntl.h
+-
+cmd.h
+/home/fangdong/work/cpkg/cmd.h
+package.h
+/home/fangdong/work/cpkg/package.h
 
 /home/fangdong/work/cpkg/package.h
 list.h

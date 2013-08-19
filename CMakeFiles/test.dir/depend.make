@@ -49,6 +49,7 @@ CMakeFiles/test.dir/cpkg.c.o: cpkg.c
 CMakeFiles/test.dir/cpkg.c.o: env.h
 CMakeFiles/test.dir/cpkg.c.o: list.h
 CMakeFiles/test.dir/cpkg.c.o: package.h
+CMakeFiles/test.dir/cpkg.c.o: path.h
 CMakeFiles/test.dir/cpkg.c.o: slice.h
 
 CMakeFiles/test.dir/env.c.o: env.c

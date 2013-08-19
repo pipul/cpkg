@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
+
 #include "env.h"
+#include "path.h"
 #include "compiler.h"
 
 static char *usage = "\n\
@@ -17,7 +20,18 @@ The commands are:\n\
 
 
 int do_build(int argc, char **argv) {
-	
+	struct env env;
+	char *dir;
+	char wd[PATH_MAXLEN];
+
+	getcwd(wd, PATH_MAXLEN);
+	dir = path_dir(wd);
+	INIT_LIST_HEAD(&env.allpackages);
+	snprintf(env.srcpath, PATH_MAXLEN, "%s", dir);
+	snprintf(env.objpath, PATH_MAXLEN, "%s/.obj", wd);
+	snprintf(env.libpath, PATH_MAXLEN, "%s/.lib", wd);
+
+	// pkg_makeroot(&env);
 }
 
 int do_test(int argc, char **argv) {

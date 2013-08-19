@@ -38,6 +38,10 @@ void pkg_destroy(struct package *pkg) {
 }
 
 
+static int check_ignore_path(struct dirent *ent) {
+	return ent->d_name[0] != '.';
+}
+
 struct package *pkg_make(struct env *ev, char *path) {
 	char *srcfile;
 	int i;
@@ -55,7 +59,7 @@ struct package *pkg_make(struct env *ev, char *path) {
 	}
 	pkg->env = ev;
 	slice_init(&ents);
-	path_walk(path, &ents);
+	path_walktest(path, &ents, check_ignore_path);
 
 	for (i = 0; i < slice_size(&ents); i++) {
 		srcfile = slice_get(&ents, i);
@@ -84,7 +88,7 @@ void pkg_makeroot(struct env *env) {
 	struct package *pkg;
 
 	slice_init(&ents);
-	path_walk(env->srcpath, &ents);
+	path_walktest(env->srcpath, &ents, check_ignore_path);
 	
 	for (i = 0; i < slice_size(&ents); i++) {
 		subdir = slice_get(&ents, i);

@@ -25,12 +25,14 @@ struct package *pkg_new(const char *path) {
 	INIT_LIST_HEAD(&pkg->subpkgs);
 	snprintf(pkg->name, PATH_MAXLEN, "%s", pos + 5);
 	slice_init(&pkg->cmdops);
+	slice_init(&pkg->objs);
 	slice_init(&pkg->aux_source);
 	return pkg;
 }
 
 void pkg_destroy(struct package *pkg) {
 	slice_destroy(&pkg->cmdops);
+	slice_destroy(&pkg->objs);
 	slice_destroy(&pkg->aux_source);
 	free(pkg);
 }

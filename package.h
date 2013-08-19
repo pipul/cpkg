@@ -44,6 +44,7 @@ struct package {
 	struct env *env;
 
 	struct slice aux_source;
+	struct slice objs;
 	struct slice cmdops;
 
 	struct list_head child; // child of parent list

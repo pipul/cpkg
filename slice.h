@@ -30,7 +30,7 @@ int strprefix(const char *haystack, const char *str);
 int strsuffix(const char *haystack, const char *str);
 int strsplit(const char *haystack, const char *str, char *res[], int size);
 int strcontain(const char *haystack, const char *str);
-
+int strreplace(char *haystack, char *str, char *rstr, int limit);
 
 
 

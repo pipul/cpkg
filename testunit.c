@@ -77,7 +77,7 @@ int test_str() {
 	for (i = 0; i < len; i++)
 		free(res[i]);
 
-	if (!strreplace(buf, "n;w", "---") || strcmp(buf, buf2) != 0)
+	if (!strreplace(buf, "n;w", "---", 0) || strcmp(buf, buf2) != 0)
 		fprintf(stderr, "strreplace failed: %s %s\n", buf, buf2);
 
 	fprintf(stdout, "test_str done\n");

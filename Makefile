@@ -102,24 +102,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named cpkg
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test
-.PHONY : test
+cpkg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cpkg
+.PHONY : cpkg
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+cpkg/fast:
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/build
+.PHONY : cpkg/fast
 
 cmd.o: cmd.c.o
 .PHONY : cmd.o
 
 # target to build an object file
 cmd.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd.c.o
 .PHONY : cmd.c.o
 
 cmd.i: cmd.c.i
@@ -127,7 +127,7 @@ cmd.i: cmd.c.i
 
 # target to preprocess a source file
 cmd.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd.c.i
 .PHONY : cmd.c.i
 
 cmd.s: cmd.c.s
@@ -135,7 +135,7 @@ cmd.s: cmd.c.s
 
 # target to generate assembly for a file
 cmd.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd.c.s
 .PHONY : cmd.c.s
 
 cmd_addlibrary.o: cmd_addlibrary.c.o
@@ -143,7 +143,7 @@ cmd_addlibrary.o: cmd_addlibrary.c.o
 
 # target to build an object file
 cmd_addlibrary.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd_addlibrary.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd_addlibrary.c.o
 .PHONY : cmd_addlibrary.c.o
 
 cmd_addlibrary.i: cmd_addlibrary.c.i
@@ -151,7 +151,7 @@ cmd_addlibrary.i: cmd_addlibrary.c.i
 
 # target to preprocess a source file
 cmd_addlibrary.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd_addlibrary.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd_addlibrary.c.i
 .PHONY : cmd_addlibrary.c.i
 
 cmd_addlibrary.s: cmd_addlibrary.c.s
@@ -159,7 +159,7 @@ cmd_addlibrary.s: cmd_addlibrary.c.s
 
 # target to generate assembly for a file
 cmd_addlibrary.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd_addlibrary.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd_addlibrary.c.s
 .PHONY : cmd_addlibrary.c.s
 
 cmd_build.o: cmd_build.c.o
@@ -167,7 +167,7 @@ cmd_build.o: cmd_build.c.o
 
 # target to build an object file
 cmd_build.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd_build.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd_build.c.o
 .PHONY : cmd_build.c.o
 
 cmd_build.i: cmd_build.c.i
@@ -175,7 +175,7 @@ cmd_build.i: cmd_build.c.i
 
 # target to preprocess a source file
 cmd_build.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd_build.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd_build.c.i
 .PHONY : cmd_build.c.i
 
 cmd_build.s: cmd_build.c.s
@@ -183,7 +183,7 @@ cmd_build.s: cmd_build.c.s
 
 # target to generate assembly for a file
 cmd_build.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd_build.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd_build.c.s
 .PHONY : cmd_build.c.s
 
 cmd_version.o: cmd_version.c.o
@@ -191,7 +191,7 @@ cmd_version.o: cmd_version.c.o
 
 # target to build an object file
 cmd_version.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd_version.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd_version.c.o
 .PHONY : cmd_version.c.o
 
 cmd_version.i: cmd_version.c.i
@@ -199,7 +199,7 @@ cmd_version.i: cmd_version.c.i
 
 # target to preprocess a source file
 cmd_version.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd_version.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd_version.c.i
 .PHONY : cmd_version.c.i
 
 cmd_version.s: cmd_version.c.s
@@ -207,7 +207,7 @@ cmd_version.s: cmd_version.c.s
 
 # target to generate assembly for a file
 cmd_version.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cmd_version.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cmd_version.c.s
 .PHONY : cmd_version.c.s
 
 compiler.o: compiler.c.o
@@ -215,7 +215,7 @@ compiler.o: compiler.c.o
 
 # target to build an object file
 compiler.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/compiler.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/compiler.c.o
 .PHONY : compiler.c.o
 
 compiler.i: compiler.c.i
@@ -223,7 +223,7 @@ compiler.i: compiler.c.i
 
 # target to preprocess a source file
 compiler.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/compiler.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/compiler.c.i
 .PHONY : compiler.c.i
 
 compiler.s: compiler.c.s
@@ -231,7 +231,7 @@ compiler.s: compiler.c.s
 
 # target to generate assembly for a file
 compiler.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/compiler.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/compiler.c.s
 .PHONY : compiler.c.s
 
 compiler_gcc.o: compiler_gcc.c.o
@@ -239,7 +239,7 @@ compiler_gcc.o: compiler_gcc.c.o
 
 # target to build an object file
 compiler_gcc.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/compiler_gcc.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/compiler_gcc.c.o
 .PHONY : compiler_gcc.c.o
 
 compiler_gcc.i: compiler_gcc.c.i
@@ -247,7 +247,7 @@ compiler_gcc.i: compiler_gcc.c.i
 
 # target to preprocess a source file
 compiler_gcc.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/compiler_gcc.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/compiler_gcc.c.i
 .PHONY : compiler_gcc.c.i
 
 compiler_gcc.s: compiler_gcc.c.s
@@ -255,7 +255,7 @@ compiler_gcc.s: compiler_gcc.c.s
 
 # target to generate assembly for a file
 compiler_gcc.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/compiler_gcc.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/compiler_gcc.c.s
 .PHONY : compiler_gcc.c.s
 
 cpkg.o: cpkg.c.o
@@ -263,7 +263,7 @@ cpkg.o: cpkg.c.o
 
 # target to build an object file
 cpkg.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cpkg.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cpkg.c.o
 .PHONY : cpkg.c.o
 
 cpkg.i: cpkg.c.i
@@ -271,7 +271,7 @@ cpkg.i: cpkg.c.i
 
 # target to preprocess a source file
 cpkg.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cpkg.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cpkg.c.i
 .PHONY : cpkg.c.i
 
 cpkg.s: cpkg.c.s
@@ -279,7 +279,7 @@ cpkg.s: cpkg.c.s
 
 # target to generate assembly for a file
 cpkg.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/cpkg.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/cpkg.c.s
 .PHONY : cpkg.c.s
 
 env.o: env.c.o
@@ -287,7 +287,7 @@ env.o: env.c.o
 
 # target to build an object file
 env.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/env.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/env.c.o
 .PHONY : env.c.o
 
 env.i: env.c.i
@@ -295,7 +295,7 @@ env.i: env.c.i
 
 # target to preprocess a source file
 env.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/env.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/env.c.i
 .PHONY : env.c.i
 
 env.s: env.c.s
@@ -303,7 +303,7 @@ env.s: env.c.s
 
 # target to generate assembly for a file
 env.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/env.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/env.c.s
 .PHONY : env.c.s
 
 package.o: package.c.o
@@ -311,7 +311,7 @@ package.o: package.c.o
 
 # target to build an object file
 package.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/package.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/package.c.o
 .PHONY : package.c.o
 
 package.i: package.c.i
@@ -319,7 +319,7 @@ package.i: package.c.i
 
 # target to preprocess a source file
 package.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/package.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/package.c.i
 .PHONY : package.c.i
 
 package.s: package.c.s
@@ -327,7 +327,7 @@ package.s: package.c.s
 
 # target to generate assembly for a file
 package.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/package.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/package.c.s
 .PHONY : package.c.s
 
 path.o: path.c.o
@@ -335,7 +335,7 @@ path.o: path.c.o
 
 # target to build an object file
 path.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/path.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/path.c.o
 .PHONY : path.c.o
 
 path.i: path.c.i
@@ -343,7 +343,7 @@ path.i: path.c.i
 
 # target to preprocess a source file
 path.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/path.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/path.c.i
 .PHONY : path.c.i
 
 path.s: path.c.s
@@ -351,7 +351,7 @@ path.s: path.c.s
 
 # target to generate assembly for a file
 path.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/path.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/path.c.s
 .PHONY : path.c.s
 
 str.o: str.c.o
@@ -359,7 +359,7 @@ str.o: str.c.o
 
 # target to build an object file
 str.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/str.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/str.c.o
 .PHONY : str.c.o
 
 str.i: str.c.i
@@ -367,7 +367,7 @@ str.i: str.c.i
 
 # target to preprocess a source file
 str.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/str.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/str.c.i
 .PHONY : str.c.i
 
 str.s: str.c.s
@@ -375,7 +375,7 @@ str.s: str.c.s
 
 # target to generate assembly for a file
 str.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/str.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/str.c.s
 .PHONY : str.c.s
 
 testunit.o: testunit.c.o
@@ -383,7 +383,7 @@ testunit.o: testunit.c.o
 
 # target to build an object file
 testunit.c.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/testunit.c.o
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/testunit.c.o
 .PHONY : testunit.c.o
 
 testunit.i: testunit.c.i
@@ -391,7 +391,7 @@ testunit.i: testunit.c.i
 
 # target to preprocess a source file
 testunit.c.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/testunit.c.i
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/testunit.c.i
 .PHONY : testunit.c.i
 
 testunit.s: testunit.c.s
@@ -399,7 +399,7 @@ testunit.s: testunit.c.s
 
 # target to generate assembly for a file
 testunit.c.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/testunit.c.s
+	$(MAKE) -f CMakeFiles/cpkg.dir/build.make CMakeFiles/cpkg.dir/testunit.c.s
 .PHONY : testunit.c.s
 
 # Help Target
@@ -408,9 +408,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... cpkg"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... cmd.o"
 	@echo "... cmd.i"
 	@echo "... cmd.s"

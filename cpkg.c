@@ -21,17 +21,33 @@ The commands are:\n\
 
 int do_build(int argc, char **argv) {
 	struct env env;
-	char *dir;
-	char wd[PATH_MAXLEN];
+	struct package *pkg;
+	char *dir, *pkg_name;
+	char wd[PATH_MAXLEN], target[PATH_MAXLEN];
+
 
 	getcwd(wd, PATH_MAXLEN);
 	dir = path_dir(wd);
+	pkg_name = path_base(wd);
+	
 	INIT_LIST_HEAD(&env.allpackages);
 	snprintf(env.srcpath, PATH_MAXLEN, "%s", dir);
 	snprintf(env.objpath, PATH_MAXLEN, "%s/.obj", wd);
 	snprintf(env.libpath, PATH_MAXLEN, "%s/.lib", wd);
 
-	// pkg_makeroot(&env);
+	pkg_makeroot(&env);
+	list_add(&env.alllink, &env_list);
+	list_for_each_entry(pkg, &env.allpackages, struct package, child) {
+		if (strcmp(pkg_name, pkg->name) != 0)
+			continue;
+		pkg_load_definitions(pkg);
+		pkg_process_command(pkg);
+	}
+	free(dir);
+	
+	snprintf(wd, PATH_MAXLEN, "%s/%s/%s.a", env.libpath, pkg_name, pkg_name);
+	snprintf(target, PATH_MAXLEN, "%s/%s/%s", env.srcpath, pkg_name, pkg_name);
+	execlp("gcc", "gcc", wd, "-o", target, NULL);
 }
 
 int do_test(int argc, char **argv) {

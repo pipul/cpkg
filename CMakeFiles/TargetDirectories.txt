@@ -1,1 +1,1 @@
-/home/fangdong/work/cpkg/CMakeFiles/test.dir
+/home/fangdong/work/cpkg/CMakeFiles/cpkg.dir

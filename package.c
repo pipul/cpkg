@@ -10,20 +10,17 @@
 #include "cmd.h"
 #include "package.h"
 
-struct package *pkg_new(const char *path) {
+struct package *pkg_new(const char *root, const char *path) {
 	struct package *pkg;
 	char *pos;
 
 	if (strlen(path) >= PATH_MAXLEN)
 		return NULL;
-	if (!(pos = strstr(path, "/src/"))) {
-		// invalid package pathname ...
-		return NULL;
-	}
 	if (!(pkg = calloc(sizeof(*pkg), 1)))
 		return NULL;
 	INIT_LIST_HEAD(&pkg->subpkgs);
-	snprintf(pkg->name, PATH_MAXLEN, "%s", pos + 5);
+	snprintf(pkg->name, PATH_MAXLEN, "%s", path + strlen(root) + ({
+				(path + strlen(root))[0] == '/' ? 1 : 0;}));
 	slice_init(&pkg->cmdops);
 	slice_init(&pkg->objs);
 	slice_init(&pkg->aux_source);
@@ -52,8 +49,8 @@ struct package *pkg_make(struct env *ev, char *path) {
 		fprintf(stderr, "env check failed: %s %s\n", ev->srcpath, path);
 		exit(-1);
 	}
-		
-	if (!(pkg = pkg_new(path))) {
+
+	if (!(pkg = pkg_new(ev->srcpath, path))) {
 		fprintf(stderr, "can't create package: %s\n", path);
 		exit(-1);
 	}

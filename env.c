@@ -26,6 +26,7 @@ int env_init() {
 		if (!env)
 			continue;
 		env_make(env, res[i]);
+		INIT_LIST_HEAD(env->allpackages);
 		list_add(&env->alllink, &env_list);
 		free(res[i]);
 		pkg_makeroot(env);

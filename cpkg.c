@@ -47,7 +47,7 @@ int do_build(int argc, char **argv) {
 	
 	snprintf(wd, PATH_MAXLEN, "%s/%s/%s.a", env.libpath, pkg_name, pkg_name);
 	snprintf(target, PATH_MAXLEN, "%s/%s/%s", env.srcpath, pkg_name, pkg_name);
-	execlp("gcc", "gcc", wd, "-o", target, NULL);
+	execlp("gcc", "gcc", "-g", wd, "-o", target, NULL);
 }
 
 int do_test(int argc, char **argv) {

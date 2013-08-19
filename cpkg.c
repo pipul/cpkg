@@ -6,6 +6,9 @@
 
 
 int main(int argc, char **argv) {
+	env_init();
 	compiler_init();
+	cmd_init();
+	
 	testmain(argc, argv);
 }

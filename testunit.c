@@ -154,8 +154,6 @@ int test_path() {
 }
 
 int testmain(int argc, char **argv) {
-	env_init();
-	cmd_init();
 	
 	test_path();
 	test_package();

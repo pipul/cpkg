@@ -18,6 +18,8 @@ void slice_merge_from(struct slice *s, struct slice *from);
 int slice_size(struct slice *s);
 void *slice_get(struct slice *s, int idx);
 void **slice_data(struct slice *s);
+void slice_remove(struct slice *s, int idx);
+void slice_reset(struct slice *s);
 
 #define list_for_each_elem(pos, slice)			   \
 	for (pos = slice_data(slice);			   \

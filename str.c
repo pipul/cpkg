@@ -137,3 +137,6 @@ void slice_remove(struct slice *s, int idx) {
 	s->size--;
 }
 
+void slice_reset(struct slice *s) {
+	s->size = 0;
+}

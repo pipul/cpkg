@@ -78,6 +78,46 @@ int path_walk(const char *pathname, struct slice *ents) {
 	return 0;
 }
 
+int path_walkfile(const char *pathname, struct slice *ents) {
+	int i, size;
+	char *filename;
+	struct slice tmp;
+
+	slice_init(&tmp);
+	path_walk(pathname, &tmp);
+	for (i = 0; i < slice_size(&tmp); i++) {
+		filename = slice_get(&tmp, i);
+		if (!path_isfile(filename)) {
+			free(filename);
+			slice_remove(&tmp, i);
+			i--;
+			continue;
+		}
+	}
+	slice_merge_from(ents, &tmp);
+	return 0;
+}
+
+int path_walkdir(const char *pathname, struct slice *ents) {
+	int i, size;
+	char *filename;
+	struct slice tmp;
+
+	slice_init(&tmp);
+	path_walk(pathname, &tmp);
+	for (i = 0; i < slice_size(&tmp); i++) {
+		filename = slice_get(&tmp, i);
+		if (!path_isdir(filename)) {
+			free(filename);
+			slice_remove(&tmp, i);
+			i--;
+			continue;
+		}
+	}
+	slice_merge_from(ents, &tmp);
+	return 0;
+}
+
 
 int path_mkdir(const char *filename, mode_t mode, int flags) {
 	char *name = (char *)filename;
